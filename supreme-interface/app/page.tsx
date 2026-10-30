@@ -17,7 +17,7 @@ export default function SupremeDashboard() {
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   // Replace with your actual live public Render Web Service HTTPS URL
-  const RENDER_BACKEND_URL = 'https://supreme-ai-uziz.onrender.com';
+  const RENDER_BACKEND_URL = 'https://onrender.com';
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -90,7 +90,7 @@ export default function SupremeDashboard() {
         <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/5 blur-[120px]" />
       </div>
 
-      {/* Main Structural Interface layout Container */}
+      {/* Main Structural Interface Container */}
       <div className="flex flex-col flex-grow max-w-5xl mx-auto w-full h-full p-4 md:p-6 relative z-10 justify-between">
         
         {/* Animated App Header */}
@@ -119,7 +119,11 @@ export default function SupremeDashboard() {
                 onClick={() => setMode(m)}
                 className={`relative px-4 py-2 text-xs font-bold capitalize rounded-lg transition-colors duration-200 z-10 ${mode === m ? 'text-white' : 'text-slate-400 hover:text-slate-200'}`}
               >
-                {m === 'standard' ? <span className="flex items-center gap-1"><Zap className="w-3 h-3" /> Standard</span> : <span className="flex items-center gap-1"><Terminal className="w-3 h-3" /> Advanced</span>}
+                {m === 'standard' ? (
+                  <span className="flex items-center gap-1"><Zap className="w-3 h-3" /> Standard</span>
+                ) : (
+                  <span className="flex items-center gap-1"><Terminal className="w-3 h-3" /> Advanced</span>
+                )}
                 {mode === m && (
                   <motion.div
                     layoutId="activeCloudTab"
@@ -141,11 +145,11 @@ export default function SupremeDashboard() {
                 animate={{ opacity: 0.6, scale: 1 }}
                 className="h-full flex flex-col items-center justify-center text-center mt-20"
               >
-                <div class="w-14 h-14 rounded-2xl border border-slate-800 flex items-center justify-center mb-4 bg-slate-900/40">
+                <div className="w-14 h-14 rounded-2xl border border-slate-800 flex items-center justify-center mb-4 bg-slate-900/40">
                   <ShieldCheck className="w-6 h-6 text-indigo-400" />
                 </div>
-                <h3 class="text-md font-bold text-white tracking-wide">Secure Global Endpoint</h3>
-                <p class="text-xs max-w-xs mt-1 text-slate-400">Your chat directives are processed securely through Render and routed directly to free-tier cloud processing layers.</p>
+                <h3 className="text-md font-bold text-white tracking-wide">Secure Global Endpoint</h3>
+                <p className="text-xs max-w-xs mt-1 text-slate-400">Your chat directives are processed securely through Render and routed directly to free-tier cloud processing layers.</p>
               </motion.div>
             ) : (
               messages.map((msg, i) => (
