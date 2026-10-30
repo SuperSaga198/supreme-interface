@@ -86,8 +86,8 @@ export default function SupremeDashboard() {
     <div className="flex h-screen bg-slate-950 text-slate-100 font-sans overflow-hidden relative">
       {/* Background Radial Ambiance */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[120px]" />
-        <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/5 blur-[120px]" />
+        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/5 blur-[120px]" />
       </div>
 
       {/* Main Structural Interface layout Container */}
