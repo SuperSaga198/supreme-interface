@@ -16,8 +16,8 @@ export default function SupremeDashboard() {
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  // Replace with your actual live public Render Web Service HTTPS URL
-  const MODAL_BACKEND_URL = 'https://supersaga198--supreme-ai-hybrid-hf-engine-web-gateway.us-east.modal.run';
+  // Correct variable definition mapping straight out to your active Modal cloud environment
+  const MODAL_BACKEND_URL = 'https://modal.run';
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -31,7 +31,6 @@ export default function SupremeDashboard() {
     setInput('');
     setLoading(true);
 
-    // Append user query and prepare an empty animated node for incoming AI stream chunks
     setMessages((prev) => [
       ...prev,
       { role: 'user', content: userPrompt },
@@ -39,7 +38,8 @@ export default function SupremeDashboard() {
     ]);
 
     try {
-      const response = await fetch(RENDER_BACKEND_URL, {
+      // FIXED: Swapped out the old undefined RENDER variable with MODAL_BACKEND_URL
+      const response = await fetch(MODAL_BACKEND_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -50,7 +50,7 @@ export default function SupremeDashboard() {
         })
       });
 
-      if (!response.ok) throw new Error('Render service offline.');
+      if (!response.ok) throw new Error('Modal service offline.');
 
       const reader = response.body?.getReader();
       const decoder = new TextDecoder();
@@ -149,7 +149,7 @@ export default function SupremeDashboard() {
                   <ShieldCheck className="w-6 h-6 text-indigo-400" />
                 </div>
                 <h3 className="text-md font-bold text-white tracking-wide">Secure Global Endpoint</h3>
-                <p className="text-xs max-w-xs mt-1 text-slate-400">Your chat directives are processed securely through Render and routed directly to free-tier cloud processing layers.</p>
+                <p className="text-xs max-w-xs mt-1 text-slate-400">Your chat directives are processed securely through Modal and routed directly to free-tier cloud processing layers.</p>
               </motion.div>
             ) : (
               messages.map((msg, i) => (
