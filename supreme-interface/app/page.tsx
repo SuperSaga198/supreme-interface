@@ -17,7 +17,7 @@ export default function SupremeDashboard() {
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   // Replace with your actual live public Render Web Service HTTPS URL
-  const RENDER_BACKEND_URL = 'https://supreme-ai-uziz.onrender.com';
+  const MODAL_BACKEND_URL = 'https://supersaga198--supreme-ai-hybrid-hf-engine-web-gateway.us-east.modal.run';
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
